@@ -1,0 +1,7 @@
+# build directorys
+/_build/
+
+# backup files
+*.orig
+*~
+
