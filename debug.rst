@@ -21,7 +21,7 @@ Linux 用户可以用
 
 脚本调试
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-目前，还不能通过XBMC Python代码调试，因为Python模块是直接从C++中注入的，因此没有普遍意义上的Python库，显示这需要继续完善 [#]_。
+目前，还不能通过XBMC Python代码调试，因为Python模块是直接从C++中注入的，因此没有普遍意义上的Python库，显然这需要继续完善 [#]_。
 
 也可以在代码中植入打印语句，它们将会在调试log中出现，由于会生成大量内容，采取以下形式。
 ::
@@ -33,6 +33,7 @@ Linux 用户可以用
 可以帮助你很容易定位它。
 
 可从以下链接中找到一些安装Python 调试器的有用指导：
+
 * http://wiki.xbmc.org/index.php?title=HOW-TO_debug_Python_Scripts
 * http://wiki.xbmc.org/index.php?title=HOW-TO_debug_Python_Scripts_with_Eclipse
 

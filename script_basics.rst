@@ -76,7 +76,7 @@ ping你正在twitter上的朋友，告诉他们你现在在家的脚本可被称
 
 目录结构
 --------------------------------------------------
-你的目录中包含操作附加组件所需的所有资源。该目录必须为只读，且不用于存储任何对话或瞬时数据来干这件事（稍后）。
+你的目录中包含操作附加组件所需的所有资源。该目录必须为只读，且不用于存储任何对话或瞬时数据，有其它机制来干这件事（更多介绍参见后述）。
 目录中必须包含一个名为“addon xml”的文件。
 目录可包含以下文件（可选）：
 
@@ -92,7 +92,7 @@ ping你正在twitter上的朋友，告诉他们你现在在家的脚本可被称
 |    changelog.txt
 |    addon.py（一般命名为default.py [#]_ ）
 |    /resources
-|        Settings.xml
+|        settings.xml
 |        /language
 |        /lib
 |        /data
@@ -126,7 +126,7 @@ changelog.txt
 
 resources/settings.xml
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-一个包含组件当前配置的XML文件，如果组件有要用户配置的条码，把它们放在这里。当用户在XBMC内点击组件设置时，该文件决定了用户能看到什么，
+一个包含组件当前配置的XML文件，如果组件有要用户配置的条目，把它们放在这里。当用户在XBMC内点击组件设置时，该文件决定了用户能看到什么，
 使用这项功能不必编写代码。
 设置文件的格式如下例所示，相当直接::
 
@@ -221,12 +221,12 @@ category（类别）和settings（设置）中的lable（标签）属性可以�
 
 设置可以有附加属性
  * source=""
-    - “video”、“music”、“pictures”、“programs”、“file”，或者为空。如果source为空，共享有效，就使用共享类型，共享无效，就使用本地和网盘
+    - “video”、“music”、“pictures”、“programs”、“file”，或者为空。如果source为空，共享有效，就使用共享类型；共享无效，就使用本地和网盘
 
  * visible=""
-    - “true”、“false”。决定设置是否在设置对话框中出现（缺省为“true”）确定该设置根据另一个设置的值是否显示
+    - “true”、“false”。决定设置是否在设置对话框中出现（缺省为“true”）
 
- * enablef=""
+ * enable=""
     - 确定该设置根据另一个设置的值是否显示，有三个有效比较符
         + eq() 等于
         + gt() 大于
@@ -335,8 +335,6 @@ resources/language
 
 例如，要支持English、English(US)和French。在目录下，应创建3个子目录:
 
-    /resources/language directory you will create three sub directories;
-
     /resources/language/English
 
     /resources/language/English(US)
@@ -407,7 +405,7 @@ Google和Yahoode Babelfish翻译是基础翻译的两个好工具，特别是对
 
 实例部分详细说明了脚本中如何用翻译。
 
-resources/lip
+resources/lib
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 将任何模块定义或第三方软件库放在该目录下
 
@@ -445,7 +443,7 @@ addon.xml告诉XBMC:
 <addon>起始标记是必需的
 
  * id 是用于该组件的唯一标识符，它必须是唯一的，且只能是小写字母、句点、下划线、中划线和数字。该标识符也作为包含组件的文件夹的名字。参见前面关于目录命名的说明
- * vision XBMC用来判定更新是否有效，应使用类似1.0.3这样的格式
+ * version XBMC用来判定更新是否有效，应使用类似1.0.3这样的格式
  * name 组件出现在用户界面上的名字，只能为英文，且不可翻译
  * provider provider-name属性用于作者域，它可以是一个团队也可以是单个人
 

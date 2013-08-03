@@ -5,11 +5,17 @@ Python
 --------------------------------------------------
 Python.org:
 
-http://www.python.org/ - main Python site
+Python主站
 
-http://wiki.python.org/moin/ - Python documentation wiki
+http://www.python.org/
 
-http://www.python.org/doc/ - Main Python documentation
+Python Wiki
+
+http://wiki.python.org/moin/
+
+Python文档
+
+http://www.python.org/doc/
 
 XBMC
 --------------------------------------------------
