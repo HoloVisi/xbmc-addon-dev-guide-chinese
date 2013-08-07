@@ -38,29 +38,29 @@
 
     """
     XBMC Addon Developer's Guide
-    Example1 - The basic plugin structure
-               Demonstrates creating a static list
+    示例1 - 基本插件结构
+            演示静态列表的创建过程
 
-    NB This is done using functions - you could use classes
+    注意 本例使用函数 - 也可用“类”来实现
 
-    Author: Ashley Kitson
+    作者：Ashley Kitson
     """
 
-    # Step 1 - load in xbmc core support and setup the environment
+    # 步骤 1 - 加载xbmc核心支持库，设置环境
     import xbmcplugin
     import xbmcgui
     import sys
 
-    # magic; id of this plugin - cast to integer
+    # 魔法；该插件id - 强制转为整型
     thisPlugin = int(sys.argv[1])
 
-    # Step 2 - create the support functions(or classes)
+    # 步骤 2 - 创建支持函数（或 类）
 
     def createListing():
         """
-        Creates a listing that XBMC can display as a directory listing
+        创建XBMC作为目录显示的列表
 
-        @returnlist
+        @return list
         """
         listing = []
         listing.append('Thefirstitem')
@@ -73,24 +73,24 @@
 
     def sendToXbmc(listing):
         """
-        Sends a listing to XBMC for display as a directory listing
-        Plugins always result in a listing
+        发送列表给XBMC作为目录列表显示
+        插件始终产生列表
 
         @param list listing
         @return void
         """
-        # access global plugin id
+        # 存取全局变量 - 插件id
         global thisPlugin
 
-        #send each item to xbmc
+        # 将每个条目发送给xbmc
         for item in listing:
-        listItem = xbmcgui.ListItem(item)
-        xbmcplugin.addDirectoryItem(thisPlugin, '', listItem)
+            listItem = xbmcgui.ListItem(item)
+            xbmcplugin.addDirectoryItem(thisPlugin, '', listItem)
 
-        # tell xbmc we have finished creating the directory listing
+        # 告诉XBMC已经完成目录列表的创建
         xbmcplugin.endOfDirectory(thisPlugin)
 
-    #Step 3 - run the programs
+    # 步骤 3 - 运行程序
     endToXbmc(createListing())
 
 重启XBMC，然后在 *音乐* 部分选择运行该组件。

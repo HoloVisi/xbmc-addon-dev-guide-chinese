@@ -39,28 +39,28 @@
 
     """
     XBMC Addon Developer's Guide
-    Example 2 - Moving on
-                Demonstrates creating a dynamic list
-                Demonstrates using your own modules and classes
-    NB This is done using functions - you could use classes
+    示例 2 - 继续
+            演示动态列表的创建
+            演示使用自己的模块和类
+    注意 本例使用函数 - 也可用“类”来实现
     
-    Author: Ashley Kitson
+    作者：Ashley Kitson
     """
     #
-    # Step1 - load in core support and setup the environment
+    # 步骤 1 - 加载xbmc核心支持库，设置环境
     #
     import sys
     import xbmcplugin
     
     
-    # addon id - name of addon directory
+    # 组件 id - 组件目录名
     _id = 'plugin.audio.addon-dev-ex2'
-    # resources directory
+    # 资源目录
     _resdir = "special://home/addons/" + _id + "/resources"
-    # add our library to python search path
+    # 将自己的库添加到python搜索路径
     sys.path.append(_resdir + "/lib/")
     
-    # import our worker classes from our module 
+    # 从我们的模块中导入 worker 类
     import gpodder as worker
     
     
@@ -68,13 +68,13 @@
     _thisPlugin = int(sys.argv[1])
     
     #
-    # Step 2 - instantiate the support classes
+    # 步骤 2 - 初始化支持类
     #
     creator = worker.creator(_thisPlugin, _id)
     sender = worker.sender(_thisPlugin)
     
     #
-    # Step 3 - run the program
+    # 步骤 3 - 运行程序
     #
     sender.send(creator.get())
     xbmcplugin.endOfDirectory(_thisPlugin)
@@ -100,10 +100,10 @@
     """
     XBMC Addon Developer's Guide
 
-    Example 2 - Demonstrates creating a dynamic list from Gpodder directory
-    This module provides the classes that will create and display the contents
+    示例 2 - 演示从Gpodder目录创建动态列表
+    该模块提供创建和显示内容的类
 
-    Author:Ashley Kitson
+    作者：Ashley Kitson
     """
 
     # 使xbmc和系统模块可用
@@ -132,7 +132,7 @@
         def __init__(self, pluginId, pluginName):
             """
             构造器
-            @parm int pluginId - 当前插件实例标识符
+            @param int pluginId - 当前插件实例标识符
             @param string pluginName - 调用插件的名字
             """
             self._pluginId = pluginId
@@ -151,7 +151,7 @@
             # 解析所有.m3u文件内容
             dirContent = fnmatch.filter(dirContent,'*.m3u')
 
-            # create listing
+            # 创建列表
             listing = []
             for file in dirContent:
                uri = xbmc.translatePath(dir + '/' + file)
@@ -166,7 +166,7 @@
             """
             刷新和检索当前列表以显示
             @access public
-            @returns list
+            @return list
             @usage	c=example2.creator()
             list=c.get()
             """
@@ -184,17 +184,17 @@
         def __init__(self,pluginId):
             """
             构造器
-            @parm int pluginId - current instance of plugin identifier
+            @param int pluginId - 插件当前实例标识符
             """
             self._pluginId = pluginId
 
         def send(self,listing):
             """
             Send output to XBMC
-            @param list listing - the list of items to display
+            @param list listing - 要显示的条目的列表
             @return void
             """
-            # create listing items
+            # 创建列表条目
             # item[0] = listlabel
             # item[1] = item uri
             for item in listing:

@@ -41,5 +41,5 @@
                 return 'unknown'
 
 This allows you to put multiple values in the <extension><provides> tag in addons.xml schema and
-determine at run time what section of XBMC you are in so that your addon an provide different responses dependent on
+determine at run time what section of XBMC you are in so that your addon can provide different responses dependent on
 the context. At some point the XBMC Python API may incorporate this into it's provision.

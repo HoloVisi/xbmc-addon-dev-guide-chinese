@@ -95,7 +95,7 @@
     # 第三步 – 运行程序
     #
     
-    # see if we have a URL parameter
+    # 查看是否有URL参数
     params = creator.getparams()
     try:
         url = params["url"]
@@ -103,11 +103,12 @@
         url = None
     
     if url is None:
-        # do listing 
+        # 列表
         sender.send(creator.get())
         xbmcplugin.endOfDirectory(_thisPlugin)
     else:
-        #displaynewsitemsender.displayNews(url)
+        # 显示新条目
+        sender.displayNews(url)
 
 
 将以下内容粘贴到resources/lib/rss_chippyash.py::
